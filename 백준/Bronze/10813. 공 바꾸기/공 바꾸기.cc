@@ -5,7 +5,7 @@ int main() {
     int n,m;
     cin >> n >> m;
     int arr[101] = { 0 };
-    for (int i = 1; i <= 100; ++i)
+    for (int i = 1; i <= n; ++i)
     {
         arr[i] = i;
     }
