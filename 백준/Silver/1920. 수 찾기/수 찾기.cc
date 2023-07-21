@@ -1,8 +1,5 @@
 #include <iostream>
-#include<stdio.h>
-#include<string.h>
 #include<algorithm>
-#pragma warning(disable : 4996)
 using namespace std;
 
 int arr[100001];
@@ -36,19 +33,27 @@ void Search(int n, int tmp)
 
 int main()
 {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	int n;
-	scanf("%d", &n);
+	//scanf("%d", &n);
+	cin >> n;
 	for (int i = 0; i < n; ++i)
 	{
-		scanf("%d", &arr[i]);
+		cin >> arr[i];
+		//scanf("%d", &arr[i]);
 	}
 	sort(arr, arr + n);
 
 	int m, tmp;
-	scanf("%d", &m);;
+	cin >> m;
+	//scanf("%d", &m);;
 	for (int i = 0; i < m; ++i)
 	{
-		scanf("%d", &tmp);
+		cin >> tmp;
+		//scanf("%d", &tmp);
 		Search(n, tmp);
 	}
 	return 0;
