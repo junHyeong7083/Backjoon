@@ -19,21 +19,20 @@ int main()
 		cin >> arr[i];
 	}
 	int result = 0;
+	int maxValue = 0;
+	int cnt = 0;
 	for (int e = 0; e < n; ++e)
 	{
-		int check = 0;
-		for (int k = e + 1; k < n; ++k)
+		if (maxValue < arr[e])
 		{
-			if (arr[e] > arr[k])
-			{
-				check++;
-				result = max(result, check);
-			}
-			else
-				break;
-
+			maxValue = arr[e];
+			result = max(result, cnt);
+			cnt = 0;
 		}
+		else
+			cnt++;
 	}
+	result = max(result, cnt);
 	cout << result;
 
 	return 0;
