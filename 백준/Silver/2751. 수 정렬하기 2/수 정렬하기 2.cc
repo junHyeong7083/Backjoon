@@ -24,7 +24,11 @@ int main()
         cout << arr[a] << "\n";
     }
 
+    /*
+    고려할점
 
+    endl 은 \n보다 속도가 느리다 ( flush()를 호출함 )
+    */
 
 
     return 0;
