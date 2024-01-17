@@ -12,7 +12,7 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int n,m;
+  long long n,m;
   cin >> n >>m;
   
   vector<int> v;
@@ -27,7 +27,7 @@ int main() {
   sort(v.begin(),v.end());
   
   long long start = 1;
-  long long end =(long long)m*v.back();
+  long long end =m*v.back();
   while(start <= end)
     {
       long long mid = (start+end)/2;
