@@ -18,13 +18,13 @@ int main()
     cin >> v[i];
   }
 
-  vector<int>sum(N);
+  vector<long long>sum(N+1);
   for(int i = 1; i<=N; ++i)
     {
       sum[i] = sum[i-1] + v[i];
     }
 
-  int res = 0;
+  long long res = 0;
   for(int i = 2; i <N; ++i)
     {
       res = max(res,2*sum[N]-v[1]-v[i]-sum[i]);
