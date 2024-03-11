@@ -1,59 +1,48 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
-#include <cstring>
-#include <deque>
-#include<string>
-#include<map>
+
 using namespace std;
-
-
-bool Cmp(pair<string, int>const& p1, pair<string, int>const& p2)
-{
-    if (p1.second != p2.second)
-        return p1.second > p2.second;
-    else if (p1.first.size() != p2.first.size())
-        return p1.first.size() > p2.first.size();
-    else
-        return p1.first < p2.first;  
-}
-
-
-
 
 int main()
 {
-    ios::sync_with_stdio(0);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    /*
-    1. 자주나올수록 앞에 배치
-    2. 단어의 길이가 길수록 앞에 배치
-    3. 알파벳 사전순으로 앞에있는 단어일수록 앞에 배치
-    
-    m보다 크기가 작은건 무시해도됨
-    */
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(false);
+
     int n, m;
+    map<string, int> words;
+
     cin >> n >> m;
-    map<string, int> mm;
 
-    for (int e = 0; e < n; ++e)
+    for (int i = 0; i < n; i++)
     {
-        string str;
-        cin >> str;
-        if (str.size() < m)
-            continue;
-
-         mm[str]++;
+        string word;
+        cin >> word;
+        if (word.length() >= m)
+        {
+            words[word]++;
+        }
     }
 
-    vector<pair<string, int>>v(mm.begin(), mm.end());
+    vector<pair<string, int>> wordsByFreq(words.begin(), words.end());
 
-    sort(v.begin(), v.end(), Cmp);
+    sort(wordsByFreq.begin(), wordsByFreq.end(), [](const auto& lhs, const auto& rhs)
+        {
+            if (lhs.second != rhs.second) {
+                return lhs.second > rhs.second;
+            }
+            else if (lhs.first.length() != rhs.first.length())
+            {
+                return lhs.first.length() > rhs.first.length();
+            }
+            else { return lhs.first < rhs.first; } });
 
-    for (int e = 0; e < v.size(); ++e)
-        cout << v[e].first << "\n";
+    for (const auto& pair : wordsByFreq)
+    {
+        cout << pair.first << "\n";
+    }
 
     return 0;
 }
