@@ -1,0 +1,44 @@
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#pragma warning(disable : 4996)
+
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	for (int h = 1; h <= n; ++h)
+	{
+		for (int b = n - h; b > 0; --b)
+		{
+			printf(" ");
+		}
+
+		for (int a = 0; a < 2*h-1; ++a)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+
+
+
+	for (int i = n-1; i > 0; --i)
+	{
+		for (int j = n-i; j > 0; --j)
+		{
+			printf(" ");
+		}
+		for (int k = 2 * i - 1; k >= 1; --k)
+		{
+			printf("*");
+		}
+		
+		printf("\n");
+	}
+
+
+	return 0;
+}
